@@ -1,0 +1,6 @@
+{
+  "name": "FocusFlow",
+  "description": "Modern productivity dashboard for students, developers, and builders to manage tasks and focused work sessions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
