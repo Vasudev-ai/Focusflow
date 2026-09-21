@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { X, Calendar, Tag, AlertTriangle } from 'lucide-react';
 import { PRIORITIES, CATEGORIES } from '../data/constants';
 import { getTodayString } from '../utils/dateHelpers';
+import { registerEscapeKeyHandler } from '../utils/modalKeyboard';
 
 const TaskFormContent = ({ initialTask, onClose, onSubmit }) => {
   const [title, setTitle] = useState(initialTask?.title || '');
@@ -161,6 +162,11 @@ export const TaskFormModal = ({
   onSubmit,
   initialTask = null,
 }) => {
+  useEffect(
+    () => registerEscapeKeyHandler(isOpen, onClose),
+    [isOpen, onClose],
+  );
+
   if (!isOpen) return null;
 
   return (
